@@ -1,0 +1,6 @@
+# # SORU Klavyeden girilen 2 sayıdan 1. nin büyük olup olmadığını ekrana yazdıran kod...
+#
+# birinci = int(input("Birinci sayıyı giriniz: "))
+# ikinci = int(input("İkinci sayıyı giriniz: "))
+#
+# print(birinci > ikinci)
