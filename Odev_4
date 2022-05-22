@@ -1,0 +1,30 @@
+## SORU: 10 ile 100 arasındaki tek sayıları bir listeye atın.
+
+# 1. Yöntem
+# tek_sayilar = [i for i in range(11,101,2)]
+# print(tek_sayilar)
+
+# 2. Yöntem
+# tek_sayilar = list()
+#
+# for i in range(10,101):
+#     if i % 2 == 1:
+#         tek_sayilar.append(i)
+# print(tek_sayilar)
+
+# # SORU: 1-200 arasında 20 adet rasgele sayi üretip sayilar
+# # isimli bir listeye atayınız.
+# # NOT: Sayının listede tekrar eklenmesini engelleyiniz.
+#
+# import random
+#
+# sayilar = list()
+#
+# for i in range(20):
+#     sayi = random.randint(1,200)
+#     kontrol = not sayi in sayilar
+#     if kontrol:
+#         sayilar.append(sayi)
+#
+# print(sayilar)
+# print(len(sayilar))
