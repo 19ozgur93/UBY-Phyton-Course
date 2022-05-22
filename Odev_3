@@ -1,0 +1,58 @@
+# SORU:
+"""
+    Kullanıcıadı/Email ve şifre ile giriş sağlanacak. 3 defa giriş hakkı vardır.
+        Giriş Başarılı ise ekrana "Giriş Başarılı" yazsın
+        Değilse
+            Kullanıcıya kayıt olmak ister misiniz? 
+                Hayır ise PEKİ!!! 
+                Evet Kullanıcıadı, ad, soyad,email,şifre ve şifre tekrarı alarak kayıt yapalım.
+                    şifre ve şifretekrarın aynı olması 
+
+
+"""
+# kullanici_adi = input("Kullanıcı adınızı giriniz: ")
+# sifre = input("Şifrenizi giriniz: ")
+#
+# for i in range(2):
+#     if kullanici_adi == "ozgur" and sifre == "ors":
+#         print("Giriş Başarılı!")
+#         break
+#     else:
+#         kullanici_adi = input("Hatalı giriş! Kullanıcı adınızı yeniden giriniz: ")
+#         sifre = input("Hatalı giriş! Şifrenizi  yeniden giriniz: ")
+#
+# if kullanici_adi != "ozgur" or sifre != "ors":
+#     cevap = input("Kayıt yaptırmak ister misiniz? ")
+#     if cevap == "Evet":
+#         kullanici_adi = input("Kullanıcı adınızı giriniz: ")
+#         sifre = input("Şifrenizi giriniz: ")
+#
+#         kullanici_adi_tekrar = input("Kullanıcı adınızı tekrar giriniz: ")
+#         sifre_tekrar = input("Şifrenizi tekrar giriniz: ")
+#
+#         if kullanici_adi == kullanici_adi_tekrar and sifre == sifre_tekrar:
+#             print("Kaydınız başarıyla yapılmıştır!")
+#         else:
+#             print("Kayıt işleminiz başarısız olmuştur!")
+#
+#     elif cevap == "Hayır":
+#         print("Pekiyi!")
+#     else:
+#         print("Hatalı Giriş!")
+
+#SORU: Kullanıcıdan personel sayısını alınız.
+# Personelin kaç çocuğu olduğunu isteyelim.
+# Program her çocuk için "Çocuğunuz adına 1 ağaç dikilmiştir" yazsın
+# Toplam dikilen ağaç sayısınıda ekrana yazdıralım.
+
+# personel = int(input("Personel sayısını giriniz: "))
+# toplam_agac = 0
+#
+# for i in range(personel):
+#     cocuk = int(input("Çocuk sayısını giriniz: "))
+#     toplam_agac += cocuk
+#
+# for j in range(toplam_agac):
+#     print("Çocuğunuz adına 1 ağaç dikilmiştir.")
+#
+# print(f"Dikilen ağaç sayısı: {toplam_agac}")
