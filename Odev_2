@@ -1,0 +1,92 @@
+## Kullanıcıdan 1.vize ve 2.vize  final not girilmesi istensin not aralığı 0 ile 100 arasında olmalıdır.
+## vize ve finalin ortalaması alınsın.
+## 0-44 : Kaldınız
+## 45-69: Geçtiniz
+## 70-84: İyi
+## 85-100: Pekiyi
+
+# vize_1 = int(input("Birinci vize notunuzu giriniz: "))
+# while vize_1 < 0 or vize_1 > 100:
+#     vize_1 = int(input("Hatalı giriş! Birinci vize notunuzu yeniden giriniz: "))
+#
+# vize_2 = int(input("İkinci vize notunuzu giriniz: "))
+# while vize_2 < 0 or vize_2 > 100:
+#     vize_2 = int(input("Hatalı giriş! İkinci vize notunuzu yeniden giriniz: "))
+#
+# final = int(input("Final notunuzu giriniz: "))
+# while final < 0 or final > 100:
+#     final = int(input("Hatalı giriş! Final notunuzu yeniden giriniz: "))
+#
+# ortalama = (vize_1 + vize_2 + final) / 3
+# print(ortalama)
+#
+# if ortalama >= 85 and ortalama <= 100:
+#     print("Pekiyi")
+# elif ortalama >= 70 and ortalama <= 84:
+#     print("İyi")
+# elif ortalama >= 45 and ortalama <= 69:
+#     print("Geçtiniz")
+# elif ortalama >= 0 and ortalama <= 44:
+#     print("Kaldınız")
+
+
+
+# ÖDEV: Kullanıcıdan isim,yaş,maaşve çocuk sayısı alalım
+"""
+    Eğer kullanıcının yaşı 45'in altındaysa;
+        çocuk sayısına bakılacak ve çocuk sayısı 3^ten az ise çocuk başına 250₺, değilse çocuk başına 200₺ maaşa eklenecek
+    Eğer kullanıcının yaşı 45 ve üzerinde ise:
+        çocuk başına para verilmeyecek direk 500₺ maaşa eklenecek.
+
+    Ekrana "Nesrin Yılmaz Maaşınız: 4000₺" yazılacak. 
+"""
+# isim = input("İsminizi giriniz: ")
+# yas = int(input("Yaşınızı giriniz: "))
+# maas = int(input("Maaşınızı giriniz: "))
+# cocuk = int(input("Çocuk sayısını giriniz: "))
+#
+# if yas < 45:
+#     if cocuk < 3:
+#         maas += 250 * cocuk
+#     else:
+#         maas += 200 * cocuk
+# else:
+#     maas += 500
+#
+# print(isim, "Maaşınız:", maas, "TL")
+
+
+# ÖDEV: Kullanıcı Gİriş Paneli Tasarlayınız.
+"""
+    Kullanıcıadı/Email ve şifre ile giriş sağlanacak
+        Giriş Başarılı ise ekrana "Giriş Başarılı" yazsın
+        Değilse
+            Kullanıcıya kayıt olmak ister misiniz? 
+                Hayır ise PEKİ!!! 
+                Evet Kullanıcıadı, ad, soyad,email,şifre ve şifre tekrarı alarak kayıt yapalım.
+                    şifre ve şifretekrarın aynı olması 
+"""
+
+# kullanici_adi = input("Kullanıcı adınızı giriniz: ")
+# sifre = input("Şifrenizi giriniz: ")
+#
+# if kullanici_adi == "ozgur" and sifre == "ors":
+#     print("Giriş Başarılı!")
+# else:
+#     cevap = input("Kayıt yaptırmak ister misiniz? ")
+#     if cevap == "Evet":
+#         kullanici_adi = input("Kullanıcı adınızı giriniz: ")
+#         sifre = input("Şifrenizi giriniz: ")
+#
+#         kullanici_adi_tekrar = input("Kullanıcı adınızı tekrar giriniz: ")
+#         sifre_tekrar = input("Şifrenizi tekrar giriniz: ")
+#
+#         if kullanici_adi == kullanici_adi_tekrar and sifre == sifre_tekrar:
+#             print("Kaydınız başarıyla yapılmıştır!")
+#         else:
+#             print("Kayıt işleminiz başarısız olmuştur!")
+#
+#     elif cevap == "Hayır":
+#         print("Pekiyi!")
+#     else:
+#         print("Hatalı Giriş!")
