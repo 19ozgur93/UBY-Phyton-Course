@@ -1,0 +1,111 @@
+#ÖDEV Otomat sistemi
+# Ürünler 'Kola','Fanta','Gazoz','Su'
+# Fiyatlar 8.00,7.00,4.00,1.00
+# 3 giriş hakkınız var şifre ile giriş olacak
+# kaç ürün alınmış ise fiyat ve ürün listesi yazdırılacak
+
+# Alınan Ürünler ve Toplam Fiyat
+alinan_urunler = list()
+toplam_fiyat = 0
+
+# Fiyat Listesi
+kola = 8
+fanta = 7
+gazoz = 4
+su = 1
+
+# Şifre Giriş
+for i in range(3):
+    sifre = input("Şifreyi giriniz: ").upper()
+    if sifre == "ORS":
+        print("Başarılı!")
+
+        # Ürün Seçimi
+        while True:
+            print("""
+            ## ÜRÜN LİSTESİ ##
+            1 : Kola
+            2 : Fanta
+            3 : Gazoz
+            4 : Su
+            """)
+            secim = int(input("Ürün seçiniz: "))
+
+            if secim == 1:
+                if not "kola" in alinan_urunler:
+                    alinan_urunler.append("kola")
+                toplam_fiyat += kola
+
+                print("""
+                E : Evet
+                H : Hayır
+                """)
+                istek = input("Başka bir isteğiniz var mı? ").upper()
+
+                if istek == "E":
+                    continue
+                else:
+                    break
+
+            elif secim == 2:
+                if not "fanta" in alinan_urunler:
+                    alinan_urunler.append("fanta")
+                toplam_fiyat += fanta
+
+                print("""
+                E : Evet
+                H : Hayır
+                """)
+                istek = input("Başka bir isteğiniz var mı? ").upper()
+
+                if istek == "E":
+                    continue
+                else:
+                    break
+
+            elif secim == 3:
+                if not "gazoz" in alinan_urunler:
+                    alinan_urunler.append("gazoz")
+                toplam_fiyat += gazoz
+
+                print("""
+                E : Evet
+                H : Hayır
+                """)
+                istek = input("Başka bir isteğiniz var mı? ").upper()
+
+                if istek == "E":
+                    continue
+                else:
+                    break
+
+            elif secim == 4:
+                if not "su" in alinan_urunler:
+                    alinan_urunler.append("su")
+                toplam_fiyat += su
+
+                print("""
+                E : Evet
+                H : Hayır
+                """)
+                istek = input("Başka bir isteğiniz var mı? ").upper()
+
+                if istek == "E":
+                    continue
+                else:
+                    break
+
+            else:
+                print("Hatalı Giriş!")
+
+        break
+    else:
+        if i == 2:
+            print("Deneme hakkınız kalmamıştır.")
+        else:
+            print("Hatalı giriş! Şifreyi yeniden giriniz: ")
+
+
+# Alınan Ürünlerin ve Toplam Fiyatın Yazdırılması
+print(alinan_urunler)
+print(toplam_fiyat)
