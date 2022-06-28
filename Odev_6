@@ -1,0 +1,949 @@
+## ÖDEV: KARDEŞLER LOKANTASI
+# masalar = { "Masa-1": "F", "Masa-2": "F", "Masa-3": "F", "Masa-4": "F", "Masa-5": "F" }
+# corbalar = { "1-Mercimek Çorbası": "7.00", "2-Ezogelin Çorbası": "7.00", "3-Yayla Çorbası": "6.00" }
+# baliklar = { "1-Mezgit": "27.00", "2-Plamut": "32.00", "3-Çupra": "40.00" }
+# etler = { "1-Pizola": "56.00", "2-Biftek": "65.00", "3-Lokum": "45.00" }
+# makarnalar = { "1- Bolanezli": "35.00", "2-Körili": "35.00", "3-Spagetti": "30.00" }
+# salatalar = { "1-Çoban": "25.00", "2-Sezar": "25.00", "3-Mevsim": "25.00" }
+# icecekler = { "1-Kola": "7.00", "2-Şalgam": "8.00", "3-Ayran": "7.00" }
+#
+# Sipariş Almak İçin 1
+# Hesap Almak İçin 2
+# Menü Güncelleme İçin 3
+# Çıkış İçin 4
+
+corbalar = { "Mercimek Çorbası": "7.00", "Ezogelin Çorbası": "7.00", "Yayla Çorbası": "6.00" }
+baliklar = { "Mezgit": "27.00", "Palamut": "32.00", "Çupra": "40.00" }
+etler = { "Pirzola": "56.00", "Biftek": "65.00", "Lokum": "45.00" }
+makarnalar = { "Bolonezli Makarna": "35.00", "Körili Makarna": "35.00", "Spagetti": "30.00" }
+salatalar = { "Çoban Salata": "25.00", "Sezar Salata": "25.00", "Mevsim Salata": "25.00" }
+icecekler = { "Kola": "7.00", "Şalgam": "8.00", "Ayran": "7.00" }
+
+siparis_listesi = list()
+toplam_fiyat = 0
+
+while True:
+
+    print("""********* KARDEŞLER LOKANTASINA HOŞGELDİNİZ *********
+    
+             1) Sipariş ve hesap alma
+             2) Menü güncelleme
+             3) Çıkış
+    """)
+    islem = int(input("Hangi işlemi yapmak istiyorsunuz? "))
+
+    if islem == 1:
+
+        kisi_sayisi = int(input("Kaç kişisiniz? "))
+
+        for kisi in range(1,kisi_sayisi+1):
+
+            print(""" 
+                      1) Çorbalar
+                      2) Balıklar
+                      3) Etler 
+                      4) Makarnalar
+                      5) Salatalar
+                      6) İçecekler
+            """)
+
+            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+            while True:
+
+                if siparis == 1:
+
+                    print(""" 
+                              1) Mercimek Çorbası
+                              2) Ezogelin Çorbası
+                              3) Yayla Çorbası
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Mercimek Çorbası" in siparis_listesi:
+                            siparis_listesi.append("Mercimek Çorbası")
+
+                        toplam_fiyat += float(corbalar["Mercimek Çorbası"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+
+                    elif secim == 2:
+                        if not "Ezogelin Çorbası" in siparis_listesi:
+                            siparis_listesi.append("Ezogelin Çorbası")
+
+                        toplam_fiyat += float(corbalar["Ezogelin Çorbası"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Yayla Çorbası" in siparis_listesi:
+                            siparis_listesi.append("Yayla Çorbası")
+
+                        toplam_fiyat += float(corbalar["Yayla Çorbası"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+                elif siparis == 2:
+
+                    print(""" 
+                              1) Mezgit
+                              2) Palamut
+                              3) Çupra
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Mezgit" in siparis_listesi:
+                            siparis_listesi.append("Mezgit")
+
+                        toplam_fiyat += float(baliklar["Mezgit"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 2:
+                        if not "Palamut" in siparis_listesi:
+                            siparis_listesi.append("Palamut")
+
+                        toplam_fiyat += float(baliklar["Palamut"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Çupra" in siparis_listesi:
+                            siparis_listesi.append("Çupra")
+
+                        toplam_fiyat += float(baliklar["Çupra"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+                elif siparis == 3:
+
+                    print(""" 
+                              1) Pirzola
+                              2) Biftek
+                              3) Lokum
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Pirzola" in siparis_listesi:
+                            siparis_listesi.append("Pirzola")
+
+                        toplam_fiyat += float(etler["Pirzola"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 2:
+                        if not "Biftek" in siparis_listesi:
+                            siparis_listesi.append("Biftek")
+
+                        toplam_fiyat += float(etler["Biftek"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Lokum" in siparis_listesi:
+                            siparis_listesi.append("Lokum")
+
+                        toplam_fiyat += float(etler["Lokum"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+                elif siparis == 4:
+
+                    print(""" 
+                              1) Bolonezli Makarna
+                              2) Körili Makarna
+                              3) Spagetti
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Bolonezli Makarna" in siparis_listesi:
+                            siparis_listesi.append("Bolonezli Makarna")
+
+                        toplam_fiyat += float(makarnalar["Bolonezli Makarna"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 2:
+                        if not "Körili Makarna" in siparis_listesi:
+                            siparis_listesi.append("Körili Makarna")
+
+                        toplam_fiyat += float(makarnalar["Körili Makarna"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Spagetti" in siparis_listesi:
+                            siparis_listesi.append("Spagetti")
+
+                        toplam_fiyat += float(makarnalar["Spagetti"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+
+                elif siparis == 5:
+
+                    print(""" 
+                              1) Çoban Salata
+                              2) Sezar Salata
+                              3) Mevsim Salata
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Çoban Salata" in siparis_listesi:
+                            siparis_listesi.append("Çoban Salata")
+
+                        toplam_fiyat += float(salatalar["Çoban Salata"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 2:
+                        if not "Sezar Salata" in siparis_listesi:
+                            siparis_listesi.append("Sezar Salata")
+
+                        toplam_fiyat += float(salatalar["Sezar Salata"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Mevsim Salata" in siparis_listesi:
+                            siparis_listesi.append("Mevsim Salata")
+
+                        toplam_fiyat += float(salatalar["Mevsim Salata"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+                elif siparis == 6:
+
+                    print(""" 
+                              1) Kola
+                              2) Şalgam
+                              3) Ayran
+                    """)
+
+                    secim = int(input("Seçiminiz nedir? "))
+
+                    if secim == 1:
+                        if not "Kola" in siparis_listesi:
+                            siparis_listesi.append("Kola")
+
+                        toplam_fiyat += float(icecekler["Kola"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 2:
+                        if not "Şalgam" in siparis_listesi:
+                            siparis_listesi.append("Şalgam")
+
+                        toplam_fiyat += float(icecekler["Şalgam"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    elif secim == 3:
+                        if not "Ayran" in siparis_listesi:
+                            siparis_listesi.append("Ayran")
+
+                        toplam_fiyat += float(icecekler["Ayran"])
+
+                        istek = input("Başka isteğiniz var mı? (E/H)").upper()
+                        if istek == "H":
+                            break
+                        else:
+                            print(""" 
+                                      1) Çorbalar
+                                      2) Balıklar
+                                      3) Etler 
+                                      4) Makarnalar
+                                      5) Salatalar
+                                      6) İçecekler
+                            """)
+
+                            siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+                    else:
+                        print("Hatalı giriş!")
+
+                else:
+                    print("Hatalı giriş!")
+                    siparis = int(input(f"{kisi}. kişi, siparişiniz nedir? "))
+
+        print(siparis_listesi)
+        print(toplam_fiyat)
+
+    elif islem == 2:
+
+        print(""" 
+                  1) Çorbalar
+                  2) Balıklar
+                  3) Etler 
+                  4) Makarnalar
+                  5) Salatalar
+                  6) İçecekler
+        """)
+        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+        while True:
+
+            if menu == 1:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz çorba: ")
+
+                    if not key in corbalar:
+                        corbalar[key] = float(input("Eklediğiniz çorbanın fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz çorba menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz çorba: ")
+
+                    if key in corbalar:
+                        del corbalar[key]
+                    else:
+                        print("Çıkarmak istediğiniz çorba menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            elif menu == 2:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz balık: ")
+
+                    if not key in baliklar:
+                        baliklar[key] = float(input("Eklediğiniz balığın fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz balık menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz balık: ")
+
+                    if key in baliklar:
+                        del baliklar[key]
+                    else:
+                        print("Çıkarmak istediğiniz balık menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            elif menu == 3:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz et: ")
+
+                    if not key in etler:
+                        etler[key] = float(input("Eklediğiniz etin fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz et menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz et: ")
+
+                    if key in etler:
+                        del etler[key]
+                    else:
+                        print("Çıkarmak istediğiniz et menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            elif menu == 4:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz makarna: ")
+
+                    if not key in makarnalar:
+                        makarnalar[key] = float(input("Eklediğiniz makarnanın fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz makarna menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz makarna: ")
+
+                    if key in makarnalar:
+                        del makarnalar[key]
+                    else:
+                        print("Çıkarmak istediğiniz makarna menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            elif menu == 5:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz salata: ")
+
+                    if not key in salatalar:
+                        salatalar[key] = float(input("Eklediğiniz salatanın fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz salata menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz salata: ")
+
+                    if key in salatalar:
+                        del salatalar[key]
+                    else:
+                        print("Çıkarmak istediğiniz salata menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            elif menu == 6:
+
+                print("""
+                        1) Ekleme
+                        2) Çıkarma
+                        3) Çıkış
+                """)
+                guncel = int(input("Yapılacak menü güncellemesini seçiniz: "))
+
+                if guncel == 1:
+
+                    key = input("Menüye eklemek istediğiniz içecek: ")
+
+                    if not key in icecekler:
+                        icecekler[key] = float(input("Eklediğiniz içeceğin fiyatı: "))
+                    else:
+                        print("Eklemek istediğiniz içecek menüde mevcuttur!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 2:
+
+                    key = input("Menüden çıkarmak istediğiniz içecek: ")
+
+                    if key in icecekler:
+                        del icecekler[key]
+                    else:
+                        print("Çıkarmak istediğiniz içecek menüde mevcut değildir!")
+
+                    istek = input("Menü güncellemeye devam etmek istiyor musunuz? (E/H)").upper()
+
+                    if istek == "E":
+                        print(""" 
+                                  1) Çorbalar
+                                  2) Balıklar
+                                  3) Etler 
+                                  4) Makarnalar
+                                  5) Salatalar
+                                  6) İçecekler
+                        """)
+                        menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+                    else:
+                        break
+
+                elif guncel == 3:
+                    break
+
+                else:
+                    print("Hatalı giriş!")
+
+            else:
+                print("Hatalı giriş!")
+                print(""" 
+                          1) Çorbalar
+                          2) Balıklar
+                          3) Etler 
+                          4) Makarnalar
+                          5) Salatalar
+                          6) İçecekler
+                """)
+                menu = int(input("Güncellemek istediğiniz menüyü seçiniz: "))
+
+        print(corbalar)
+        print(baliklar)
+        print(etler)
+        print(makarnalar)
+        print(salatalar)
+        print(icecekler)
+
+    elif islem == 3:
+        break
+
+    else:
+        print("Hatalı giriş!")
+        continue
+
+    break
