@@ -1,0 +1,59 @@
+# Kullanıcıdan 2 tane değer alan DegerleriAl() fonk. vardır. eger bu degerleri sayi degerleri döndürür, herhangi biri sayı değilse False döndürür.
+# -ObebHesapla(s1,s2) -> gelen bu iki sayının obeb degerlerini hesaplar ve geri döndürür.
+# -OkekHesapla(obeb) -> s1*s2=obeb*okek formulunden okek bulunur ve okek obeb yazdırılır.
+
+def DegerleriAl():
+    s1 = int(input("Birinci sayıyı giriniz: "))
+    s2 = int(input("İkinci sayıyı giriniz: "))
+
+    if (isinstance(s1,int)) and (isinstance(s2,int)):
+        return s1, s2
+    else:
+        return False
+
+def ObebHesapla(s1,s2):
+
+    obeb = 0
+
+    if s1 >= s2:
+        for i in range(1,s2+1):
+            if (s1 % i == 0) and (s2 % i == 0):
+                obeb = i
+
+    else:
+        for i in range(1,s1+1):
+            if (s1 % i == 0) and (s2 % i == 0):
+                obeb = i
+
+    print(f"Ortak bölenlerin en büyüğü: {obeb}")
+    return obeb
+
+def OkekHesapla(s1,s2):
+
+    okek = 0
+
+    if s1 >= s2:
+        okek = s1
+        while True:
+            if (okek % s1 == 0) and (okek % s2 == 0):
+                print(f"Ortak katların en küçüğü: {okek}")
+                return okek
+                break
+
+            else:
+                okek += 1
+
+    else:
+        okek = s2
+        while True:
+            if (okek % s1 == 0) and (okek % s2 == 0):
+                print(f"Ortak katların en küçüğü: {okek}")
+                return okek
+                break
+
+            else:
+                okek += 1
+
+degerler = DegerleriAl()
+obeb = ObebHesapla(degerler[0],degerler[1])
+okek = OkekHesapla(degerler[0],degerler[1])
