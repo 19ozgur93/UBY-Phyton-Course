@@ -1,0 +1,17 @@
+## Kullanıcıdan personel sayı bilgisini al: Her personel için;
+# Ad,Soyad,DogumYılı bilgilerini alarak PersonelKayitlari.txt dosyasına yazdırınız.
+
+sayi = int(input("Personel sayısını giriniz: "))
+dosya = open("Personel_Kayıtları.txt", "a+", encoding = "utf-8")
+
+dosya.write("AD" + "\t\t\t\t" + "SOYAD" + "\t\t\t\t" + "DOĞUM YILI" + "\n")
+dosya.write("-----------------------------------------------------" + "\n")
+
+for i in range(sayi):
+    ad = input("Personel adını giriniz: ")
+    soyad = input("Personel soyadını giriniz: ")
+    dogum_yili = int(input("Personel doğum yılını giriniz: "))
+
+    dosya.write(ad + "\t\t\t" + soyad + "\t\t\t\t\t" + str(dogum_yili) + "\n")
+
+dosya.close()
