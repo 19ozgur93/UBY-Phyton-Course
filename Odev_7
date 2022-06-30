@@ -41,7 +41,7 @@ def OkekHesapla(s1,s2):
                 break
 
             else:
-                okek += 1
+                okek += s1
 
     else:
         okek = s2
@@ -52,7 +52,7 @@ def OkekHesapla(s1,s2):
                 break
 
             else:
-                okek += 1
+                okek += s2
 
 degerler = DegerleriAl()
 obeb = ObebHesapla(degerler[0],degerler[1])
