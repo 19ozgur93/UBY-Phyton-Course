@@ -1,0 +1,119 @@
+### ÖDEV: Bir Şirket Otomasyonu tasarlayınız. İnsan Kaynakları, Muhasebe ve Bilgi İşlem birimleri olsun.
+# Her personeli kendi birim adıyla oluşturulan txt dosyasına isim soyisim doğumyılı başlıkları altında personel bilgileri tutulsun.
+# Personel ekleme, Güncelleme, Silme, Birime göre personel listeleme işlemlerini yapan bir menü tasarlayarak işlemler bu  menü üzerinden ilerlesin.
+
+import os
+
+def Personel_Ekleme(dosya_ismi):
+
+    print("\n" + "***** PERSONEL EKLEME *****")
+
+    dosya = open(dosya_ismi, "a+", encoding = "utf-8")
+
+    kisi_sayisi = int(input("Eklenecek personel sayısını giriniz: "))
+
+    for i in range(kisi_sayisi):
+        ad = input("Personel adını giriniz: ")
+        soyad = input("Personel soyadını giriniz: ")
+        dogum_yili = input("Personel doğum yılını giriniz: ")
+        dosya.write(ad + "\t\t\t" + soyad + "\t\t\t\t" + str(dogum_yili) + "\n")
+
+    dosya.seek(0)
+    print("\n" + dosya.read())
+
+    dosya.close()
+
+
+def Personel_Guncelleme(dosya_ismi):
+
+    print("\n" + "***** PERSONEL GÜNCELLEME *****")
+
+    if os.path.exists(os.getcwd() + "\\" + dosya_ismi):
+        dosya = open(dosya_ismi, "r+", encoding = "utf-8")
+        personel_listesi = dosya.readlines()
+        dosya.seek(0)
+        print("\n" + dosya.read())
+        satir = int(input("Güncelleme yapılacak satırı seçiniz: "))
+        dosya.close()
+
+        del personel_listesi[satir - 1]
+
+        ad = input("Personel adını giriniz: ")
+        soyad = input("Personel soyadını giriniz: ")
+        dogum_yili = input("Personel doğum yılını giriniz: ")
+
+        personel_listesi.insert(satir - 1, ad + "\t\t\t" + soyad + "\t\t\t\t" + dogum_yili + "\n")
+        guncel_dosya = open(dosya_ismi, "w+", encoding = "utf-8")
+        guncel_dosya.writelines(personel_listesi)
+        guncel_dosya.seek(0)
+        print("\n" + guncel_dosya.read())
+        guncel_dosya.close()
+
+    else:
+        print("Aradığınız dosya bulunmamaktadır!")
+
+def Personel_Silme(dosya_ismi):
+
+    print("\n" + "***** PERSONEL SİLME *****")
+
+    if os.path.exists(os.getcwd() + "\\" + dosya_ismi):
+        dosya = open(dosya_ismi, "r+", encoding = "utf-8")
+        personel_listesi = dosya.readlines()
+        dosya.seek(0)
+        print("\n" + dosya.read())
+        satir = int(input("Güncelleme yapılacak satırı seçiniz: "))
+        dosya.close()
+
+        del personel_listesi[satir - 1]
+
+        guncel_dosya = open(dosya_ismi, "w+", encoding = "utf-8")
+        guncel_dosya.writelines(personel_listesi)
+        guncel_dosya.seek(0)
+        print("\n" + guncel_dosya.read())
+        guncel_dosya.close()
+
+    else:
+        print("Aradığınız dosya bulunmamaktadır!")
+
+def Personel_Listeleme(dosya_ismi):
+
+    print("\n" + "***** PERSONEL LİSTELEME *****")
+
+    if os.path.exists(os.getcwd() + "\\" + dosya_ismi):
+        dosya = open(dosya_ismi, "r+", encoding = "utf-8")
+        dosya.seek(0)
+        print("\n" + dosya.read())
+    else:
+        print("Aradığınız dosya bulunmamaktadır!")
+
+
+print("""
+        İnsan_Kaynakları.txt
+        Muhasebe.txt
+        Bilgi_İşlem.txt
+""")
+
+dosya_ismi = input("Dosya ismini giriniz: ")
+
+print("""
+        1) Personel Ekleme
+        2) Personel Güncelleme
+        3) Personel Silme 
+        4) Personel Listeleme
+""")
+islem = input("Yapmak istediğiniz işlemi seçiniz: ")
+
+if islem == "1":
+    Personel_Ekleme(dosya_ismi)
+
+elif islem == "2":
+    Personel_Guncelleme(dosya_ismi)
+
+elif islem == "3":
+    Personel_Silme(dosya_ismi)
+
+elif islem == "4":
+    Personel_Listeleme(dosya_ismi)
+
+else:
+    print("Hatalı Giriş! Kodu yeniden çalıştırınız. ")
