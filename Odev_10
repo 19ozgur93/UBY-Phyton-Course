@@ -1,0 +1,169 @@
+# ÖDEV :
+
+# 1- Class yapısında olacak
+# 2- En az 2 tane class metod olacak
+# 3-  dosya ve klasör yok kontrolü eklenecek
+# 4- try except kullanılacak
+# 5-  raise kullanımı olacak
+
+# Öğrenci kayıt otomasyonu tasarlayın, ogrenciler dosyaya kayıt edilecek, silinecek ve güncellenecek
+# filter kullanımı olacak, yani ad soyad vs. bilgilerine göre arama yapabileceğim
+
+import os
+
+class OgrenciKayit:
+
+    def __init__(self):
+
+        self.dizin = "C:\\PythonKurs\\Test\\OgrenciKayit\\"
+        self.dosya_ismi = "Ogrenciler.txt"
+
+        self.ad = ""
+        self.soyad = ""
+        self.yas = 0
+
+    def kaydet(self):
+
+        if os.path.exists(self.dizin) == False:
+            os.mkdir(self.dizin)
+            print("Dosya yolu oluşturulmuştur.")
+
+        while True:
+
+            print("""
+                    1) Öğrenci Ekleme
+                    2) Öğrenci Güncelleme
+                    3) Öğrenci Silme
+            """)
+
+            islem = int(input("Yapmak istediğiniz işlemi seçiniz: " + "\n"))
+
+            if islem == 1:
+
+                self.ad = input("Ad: ")
+                self.soyad = input("Soyad: ")
+
+                try:
+                    self.yas = int(input("Yaş: \n"))
+                    if self.yas < 6 or self.yas > 14:
+                        raise OverflowError()
+                except ValueError:
+                    print("Hatalı giriş! Lütfen tam sayı giriniz.")
+                    continue
+                except OverflowError:
+                    print("Öğrencinin yaş aralığı 6 ile 14 arasında olmalıdır.")
+                    continue
+
+                dosya = open(self.dizin + self.dosya_ismi, "a+", encoding="utf-8")
+                dosya.write(self.ad + "\t\t\t\t" + self.soyad + "\t\t\t\t" + str(self.yas) + "\n")
+                dosya.seek(0)
+                print(dosya.read())
+                dosya.close()
+
+                break
+
+            elif islem == 2:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == True:
+
+                    dosya = open(self.dizin + self.dosya_ismi, "r+", encoding="utf-8")
+                    yazi = dosya.readlines()
+                    dosya.seek(0)
+                    print(dosya.read())
+                    dosya.close()
+
+                    satir = int(input("Güncellemek istediğiniz satır: "))
+                    try:
+                        yazi[satir - 1]
+                    except IndexError:
+                        print("Güncellemek istediğiniz satır mevcut değildir. \n")
+                        continue
+
+                    self.ad = input("Ad: ")
+                    self.soyad = input("Soyad: ")
+                    try:
+                        self.yas = int(input("Yaş: \n"))
+                        if self.yas < 6 or self.yas > 14:
+                            raise OverflowError()
+                    except ValueError:
+                        print("Hatalı giriş! Lütfen tam sayı giriniz.")
+                        continue
+                    except OverflowError:
+                        print("Öğrencinin yaş aralığı 6 ile 14 arasında olmalıdır.")
+                        continue
+
+                    yazi[satir - 1] = self.ad + "\t\t\t\t" + self.soyad + "\t\t\t\t" + str(self.yas) + "\n"
+
+                    guncel_dosya = open(self.dizin + self.dosya_ismi, "w+", encoding="utf-8")
+                    guncel_dosya.writelines(yazi)
+                    guncel_dosya.seek(0)
+                    print(guncel_dosya.read())
+                    guncel_dosya.close()
+
+                    break
+
+                else:
+                    print("Dosya yolu mevcut değildir.")
+
+            elif islem == 3:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == True:
+
+                    dosya = open(self.dizin + self.dosya_ismi, "r+", encoding="utf-8")
+                    yazi = dosya.readlines()
+                    dosya.seek(0)
+                    print(dosya.read())
+                    dosya.close()
+
+                    satir = int(input("Silmek istediğiniz satır: \n"))
+                    try:
+                        yazi[satir - 1]
+                    except IndexError:
+                        print("Silmek istediğiniz satır mevcut değildir. \n")
+                        continue
+
+                    del yazi[satir - 1]
+
+                    guncel_dosya = open(self.dizin + self.dosya_ismi, "w+", encoding="utf-8")
+                    guncel_dosya.writelines(yazi)
+                    guncel_dosya.seek(0)
+                    print(guncel_dosya.read())
+                    guncel_dosya.close()
+
+                    break
+
+                else:
+                    print("Dosya yolu mevcut değildir.")
+
+            else:
+                print("Hatalı giriş!")
+
+    def filtrele(self):
+
+        if os.path.exists(self.dizin + self.dosya_ismi) == True:
+            dosya = open(self.dizin + self.dosya_ismi, "r+", encoding = "utf-8")
+            liste = dosya.readlines()
+            dosya.seek(0)
+            print(dosya.read())
+
+            kelime = input("Aramak istediğiniz kelimeyi giriniz: \n")
+            filtrelenmis_liste = list()
+            for satir in range(len(liste)):
+                if kelime in liste[satir]:
+                    print(liste[satir], end='')
+                    filtrelenmis_liste.append(liste[satir])
+
+            if filtrelenmis_liste == list():
+                print("Aradığınız kelime bulunamamıştır.")
+
+        else:
+            print("Dosya yolu mevcut değildir.")
+
+
+nesne = OgrenciKayit()
+
+islem = int(input("Kaç kez işlem yapmak istiyorsunuz? "))
+for i in range(islem):
+    nesne.kaydet()
+
+nesne.filtrele()
