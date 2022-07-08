@@ -15,18 +15,14 @@ class OgrenciKayit:
 
     def __init__(self):
 
-        self.dizin = "C:\\PythonKurs\\Test\\OgrenciKayit\\"
-        self.dosya_ismi = "Ogrenciler.txt"
-
         self.ad = ""
         self.soyad = ""
         self.yas = 0
 
-    def kaydet(self):
+        self.dizin = os.getcwd() + "\\"
+        self.dosya_ismi = "Ogrenciler.txt"
 
-        if os.path.exists(self.dizin) == False:
-            os.mkdir(self.dizin)
-            print("Dosya yolu oluşturulmuştur.")
+    def kaydet(self):
 
         while True:
 
