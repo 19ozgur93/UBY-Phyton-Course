@@ -1,0 +1,223 @@
+# ÖDEV
+#
+# 1- Elektronik bir mağaza olduğunu düşün
+# 2-  Benzer özellikleri olan 2 ürün seç yada daha fazla
+# 3- Bu ürünlerin ortak özelliklerini bir sınıftan miras almasını sağla
+# 4- Ürünlerin bilgilerini txt dosyasında barındır
+# 5- Ürünleri listele
+# 6- Ürünleri sil
+# 7- Güncelle
+# 8- Özelliklerini yaz
+# 9- Özelliklerini Güncelle
+# 10- Özelliklerini Sil
+
+import os
+
+class ElektronikEsya:
+
+    def __init__(self):
+        self.esya = ""
+        self.marka = ""
+        self.model = ""
+        self.ozellik = [self.esya, self.marka, self.model]
+
+        self.dizin = os.getcwd() + "\\"
+        self.dosya_ismi = ""
+        self.islem = 0
+
+    def kaydet(self):
+
+        while True:
+
+            if self.islem == 1:
+
+                dosya = open(self.dizin + self.dosya_ismi, "a+", encoding = "utf-8")
+                dosya.write(f"{self.ozellik}\n")
+                dosya.seek(0)
+                print(dosya.read())
+                dosya.close()
+
+                break
+
+            elif self.islem == 2:
+
+                dosya = open(self.dizin + self.dosya_ismi, "r+", encoding = "utf-8")
+                liste = dosya.readlines()
+                dosya.seek(0)
+                print(dosya.read())
+                dosya.close()
+
+                satir = int(input("Güncellemek istediğiniz satır: "))
+                try:
+                    liste[satir - 1]
+                except IndexError:
+                    print("Güncellemek istediğiniz satır mevcut değildir. \n")
+                    continue
+
+                liste[satir - 1] = f"{self.ozellik}\n"
+
+                guncel_dosya = open(self.dizin + self.dosya_ismi, "w+", encoding = "utf-8")
+                guncel_dosya.writelines(liste)
+                guncel_dosya.seek(0)
+                print(guncel_dosya.read())
+                guncel_dosya.close()
+
+                break
+
+            elif self.islem == 3:
+
+                dosya = open(self.dizin + self.dosya_ismi, "r+", encoding = "utf-8")
+                liste = dosya.readlines()
+                dosya.seek(0)
+                print(dosya.read())
+                dosya.close()
+
+                satir = int(input("Silmek istediğiniz satır: "))
+                try:
+                    liste[satir - 1]
+                except IndexError:
+                    print("Silmek istediğiniz satır mevcut değildir. \n")
+                    continue
+
+                del liste[satir - 1]
+
+                guncel_dosya = open(self.dizin + self.dosya_ismi, "w+", encoding = "utf-8")
+                guncel_dosya.writelines(liste)
+                guncel_dosya.seek(0)
+                print(guncel_dosya.read())
+                guncel_dosya.close()
+
+                break
+
+class CepTelefonu(ElektronikEsya):
+
+    def __init__(self):
+        super().__init__()
+        self.bellek = ""
+        self.kamera = ""
+        self.ozellik += [self.bellek, self.kamera]
+        self.dosya_ismi = "CepTelefonu.txt"
+
+    def kaydet(self):
+
+        while True:
+
+            print("""
+                    1) Elektronik Eşya Ekleme
+                    2) Elektronik Eşya Güncelleme
+                    3) Elektronik Eşya Silme
+            """)
+            self.islem = int(input("Yapılacak işlemi seçiniz: \n"))
+
+            if self.islem == 1:
+                self.esya = "Cep Telefonu"
+                self.marka = input("Marka: ")
+                self.model = input("Model: ")
+                self.bellek = input("Bellek: ") + " GB"
+                self.kamera = input("Kamera: ") + " Megapixel"
+                self.ozellik = [self.esya, self.marka, self.model, self.bellek, self.kamera]
+
+                break
+
+            elif self.islem == 2:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == False:
+                    print("Dosya yolu mevcut değildir.")
+                    continue
+
+                else:
+                    self.esya = "Cep Telefonu"
+                    self.marka = input("Marka: ")
+                    self.model = input("Model: ")
+                    self.bellek = input("Bellek: ") + " GB"
+                    self.kamera = input("Kamera: ") + " Megapixel"
+                    self.ozellik = [self.esya, self.marka, self.model, self.bellek, self.kamera]
+
+                    break
+
+            elif self.islem == 3:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == False:
+                    print("Dosya yolu mevcut değildir.")
+                    continue
+
+                else:
+                    break
+
+            else:
+                print("Hatalı giriş!")
+                continue
+
+        super().kaydet()
+
+class Laptop(ElektronikEsya):
+
+    def __init__(self):
+        super().__init__()
+        self.ram = ""
+        self.isletim = ""
+        self.ozellik += [self.ram, self.isletim]
+        self.dosya_ismi = "Laptop.txt"
+
+    def kaydet(self):
+
+        while True:
+
+            print("""
+                    1) Elektronik Eşya Ekleme
+                    2) Elektronik Eşya Güncelleme
+                    3) Elektronik Eşya Silme
+            """)
+            self.islem = int(input("Yapılacak işlemi seçiniz: \n"))
+
+            if self.islem == 1:
+                self.esya = "Laptop"
+                self.marka = input("Marka: ")
+                self.model = input("Model: ")
+                self.ram = input("RAM: ") + " GB"
+                self.isletim = input("İşletim Sistemi: ")
+                self.ozellik = [self.esya, self.marka, self.model, self.ram, self.isletim]
+
+                break
+
+            elif self.islem == 2:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == False:
+                    print("Dosya yolu mevcut değildir.")
+                    continue
+
+                else:
+                    self.esya = "Laptop"
+                    self.marka = input("Marka: ")
+                    self.model = input("Model: ")
+                    self.ram = input("RAM: ") + " GB"
+                    self.isletim = input("İşletim Sistemi: ")
+                    self.ozellik = [self.esya, self.marka, self.model, self.ram, self.isletim]
+
+                    break
+
+            elif self.islem == 3:
+
+                if os.path.exists(self.dizin + self.dosya_ismi) == False:
+                    print("Dosya yolu mevcut değildir.")
+                    continue
+
+                else:
+                    break
+
+            else:
+                print("Hatalı giriş!")
+                continue
+
+        super().kaydet()
+
+
+nesne1 = CepTelefonu()
+sayi1 = int(input("Kaç kez işlem yapmak istiyorsunuz? (Cep Telefonu) "))
+for i in range(sayi1):
+    nesne1.kaydet()
+
+nesne2 = Laptop()
+sayi2 = int(input("Kaç kez işlem yapmak istiyorsunuz? (Laptop) "))
+for j in range(sayi2):
+    nesne2.kaydet()
