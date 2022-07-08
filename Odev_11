@@ -1,0 +1,42 @@
+### ÖDEV:
+# Bir Ders class'ı oluşturunuz.
+# class Ders: DersAdi,DersSaati,DersOgretmeni,DersBaslamaTarihi
+# class'dan bir nesne oluşturulduğunda field'lar oluşturularak içleri doldurulsun ve  Dersler.txt dosyasına kayıt işlemi gerçekleştirilsin.
+# Başka class başka bir dosyada tutulsun.
+
+import os
+
+class Ders:
+
+    def __init__(self):
+        self.ad = ""
+        self.saat = ""
+        self.ogretmen = ""
+        self.baslama_tarihi = ""
+
+    def kaydet(self):
+
+        self.ad = input("Ders adını giriniz: ")
+        self.saat = input("Ders saatini giriniz: ")
+        self.ogretmen = input("Öğretmenin ismini giriniz: ")
+        self.baslama_tarihi = input("Dersin başlama tarihini giriniz: ")
+
+        dizin = os.getcwd() + "\\"
+        dosya_ismi = "Dersler.txt"
+
+        dosya = open(dizin + dosya_ismi, "a+", encoding = "utf-8")
+        dosya.write(f"""
+Ders Adı: {self.ad}
+Ders Saati: {self.saat}
+Öğretmen: {self.ogretmen}
+Başlama Tarihi: {self.baslama_tarihi}
+""")
+        dosya.seek(0)
+        print(dosya.read())
+        dosya.close()
+
+nesne = Ders()
+
+sayi = int(input("Kaydetmek istediğiniz ders sayısını giriniz: "))
+for i in range(sayi):
+    nesne.kaydet()
