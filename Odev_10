@@ -145,6 +145,7 @@ class OgrenciKayit:
             liste = dosya.readlines()
             dosya.seek(0)
             print(dosya.read())
+            dosya.close()
 
             kelime = input("Aramak istediğiniz kelimeyi giriniz: \n")
             filtrelenmis_liste = list()
